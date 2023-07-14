@@ -22,23 +22,21 @@ if(message != null && message.equals("") == false){
 }
 String login = (String)request.getAttribute("loginmsg");
 if(login != null && login.equals("") == false){
-	if(login.equals("LOGIN_NO")){
+	if(login.equals("LOGIN_NO")){		
 		%>
 		<script>
 		alert("아이디나 비밀번호를 확인해 주십시오");
 		location.href = "login.do";
 		</script>
 		<%	
-	} else {
+	}else{
 		%>
 		<script>
 		alert("로그인되었습니다");
 		location.href = "bbslist.do";
 		</script>
-		<%	
-		
+		<%
 	}
-	
 }
 
 String bbswrite = (String)request.getAttribute("bbswrite");
@@ -67,7 +65,7 @@ if(answer != null && !answer.equals("")){
 		%>
 		<script type="text/javascript">
 		alert("답글이 성공적으로 작성되었습니다");
-		location.href = "bbslist.do";
+		location.href = "bbs?param=bbslist";
 		</script>
 		<%
 	}

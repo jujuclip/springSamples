@@ -4,9 +4,8 @@ import ssg.com.a.dto.MemberDto;
 
 public interface MemberService {
 
-	boolean idcheck(String id);
-
+	boolean idcheck(String id); // prototype	
 	boolean addmember(MemberDto dto);
 	
-	MemberDto loginAf(MemberDto dto);
+	MemberDto login(MemberDto dto);
 }

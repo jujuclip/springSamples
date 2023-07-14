@@ -2,16 +2,19 @@ package ssg.com.a.controller;
 
 import java.util.Date;
 
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.mysql.cj.Session;
 
 import ssg.com.a.dto.MemberDto;
 import ssg.com.a.service.MemberService;
@@ -22,17 +25,15 @@ public class MemberController {
 	@Autowired
 	MemberService service;
 	
-	@RequestMapping(value="login.do")
+	@RequestMapping(value = "login.do")
 	public String login() {
 		System.out.println("MemberController login() " + new Date());
-		
 		return "login";
 	}
-
-	@RequestMapping(value="regi.do")
+	
+	@GetMapping("regi.do")
 	public String regi() {
 		System.out.println("MemberController regi() " + new Date());
-		
 		return "regi";
 	}
 	
@@ -51,7 +52,7 @@ public class MemberController {
 	}
 	
 	@PostMapping("regiAf.do")
-	public String regiAf(MemberDto mem,Model model) {
+	public String regiAf(MemberDto mem, Model model) {
 		System.out.println("MemberController regiAf() " + new Date());
 		
 		boolean isS = service.addmember(mem);
@@ -62,29 +63,33 @@ public class MemberController {
 		model.addAttribute("message", message);
 		
 		return "message";
-	}
-
+	}	
+	
 	@PostMapping("loginAf.do")
-	public String loginAf(MemberDto mem, Model model, HttpServletRequest request) {
+	public String login(MemberDto mem, Model model, HttpServletRequest request) {
 		System.out.println("MemberController login() " + new Date());
 		
-		MemberDto dto = service.loginAf(mem);
+		MemberDto dto = service.login(mem);
 		String loginmsg = "LOGIN_NO";
 		if(dto != null) {
-			request.getSession().setAttribute("loginAf", dto);	// session에 저장
+			request.getSession().setAttribute("login", dto);	// session에 저장			
 			loginmsg = "LOGIN_YES";
-		} else {
-			
 		}
 		model.addAttribute("loginmsg", loginmsg);
 		
 		return "message";
 	}
-	
-	@RequestMapping(value="bbslist.do")
-	public String bbslist() {
-		return "bbslist";
-	}
-	
-	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

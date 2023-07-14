@@ -15,16 +15,15 @@
 		<property name="suffix" value=".jsp"/>				<!-- view 파일의 확장자명 -->
 	</bean>
 	
-	
 	<!-- 공통 팩키지 -->
 	<context:component-scan base-package="ssg.com.a"/>
-	   
+	
+	
 	<!-- Ajax 사용허가 -->
 	<mvc:annotation-driven/>
 	
-	<!-- spring에서 처리할 수 없는 요청은 tomcat이 처리하게 만드는 코드 -->
-	<mvc:default-servlet-handler/>   
-	   
+	<!-- spring에서 처리할 수 없는 요청은 tomcat이 처리 -->
+	<mvc:default-servlet-handler/>
 	            
 </beans>
 

@@ -35,15 +35,14 @@
   <context-param>
   	<param-name>contextConfigLocation</param-name>
   	<param-value>
-  			/WEB-INF/spring/applicationContext.xml
+  		/WEB-INF/spring/applicationContext.xml
   	</param-value>
   </context-param>
   
   <listener>
   	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
-  
-  
+    
   <!-- 한글설정 -->
   <filter>
   	<filter-name>encodingFilter</filter-name>
@@ -59,7 +58,6 @@
   		<param-value>true</param-value>
   	</init-param>
   	
-  	
   </filter>
   
   <filter-mapping>
@@ -67,6 +65,16 @@
   	<url-pattern>/*</url-pattern>
   </filter-mapping>
   
+  
+  
 </web-app>
+
+
+
+
+
+
+
+
 
 

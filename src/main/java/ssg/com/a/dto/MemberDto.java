@@ -1,16 +1,16 @@
 package ssg.com.a.dto;
 
 import java.io.Serializable;
+							// 직렬화   obj1, obj2
+public class MemberDto implements Serializable{
 
-public class MemberDto implements Serializable {
 	private String id;
 	private String pwd;
 	private String name;
 	private String email;
-	private int auth;
+	private int auth;		// 사용자:3 관리자:1
 	
 	public MemberDto() {
-	
 	}
 
 	public MemberDto(String id, String pwd, String name, String email, int auth) {
@@ -30,11 +30,11 @@ public class MemberDto implements Serializable {
 		this.id = id;
 	}
 
-	public String getpwd() {
+	public String getPwd() {
 		return pwd;
 	}
 
-	public void setpwd(String pwd) {
+	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
 
@@ -64,11 +64,7 @@ public class MemberDto implements Serializable {
 
 	@Override
 	public String toString() {
-		return "MemberDto [id=" + id + ", pwd=" + pwd + ", name=" + name + ", email=" + email + ", auth="
-				+ auth + "]";
+		return "MemberDto [id=" + id + ", pwd=" + pwd + ", name=" + name + ", email=" + email + ", auth=" + auth + "]";
 	}
-	
-	
-	
-	
+		
 }
